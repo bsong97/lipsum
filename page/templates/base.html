@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <title>Math Idea | {% block title %}{% endblock %}</title>
+        <script type="text/javascript" src="http://use.typekit.com/jkd5kce.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript">
+            function printToday() {
+            var d = new Date();
+            var weekday = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+            document.write(weekday[d.getDay()]);
+            }
+        </script>
+
+    </head>
+    <body id="body">
+        
+        <div class="greetings">        
+            <h3> Happy <script>printToday()</script> </h3>
+        </div>
+
+
+        <div class="wrapper">
+        <div class="container">
+        
+        <div class="header">
+            
+            <div class="bigname">
+                <a href="{{ url_for('frontpage') }}"><div class="bigtitle">Title here</div></a>
+            </div>
+            </br>
+            <div class="underbigname">Next line goes here</div>
+            
+            {% set navigation_bar = [('/contact', 'contact', 'Contact', "Leave a message"),
+                                    ('/about', 'about', 'About', "About"),
+                                    ('/projects', 'projects', 'Projects', "Our projects")
+            ] -%}
+
+            {% set active_page= active_page|default('frontpage') -%}
+
+            <ul class="navtopright">
+                {% for href, id, caption, title in navigation_bar %}
+                    <li{% if id==active_page %} class="active" {% endif %}>
+                    <span><a title="{{ title|e }}" href="{{ href|e }}">{{ caption|e }}</a></span></li>
+                    <li>|</li>
+                {% endfor %}
+                
+                <li{% if active_page=="frontpage" %} class="active" {% endif %}>
+                    <span><a title="Frontpage" href="{{ url_for('frontpage') }}">home</a></span></li>
+            </ul>
+
+            </br></br></br>
+            <div class="clear"></div>
+        </div>
+
+            {% block content %}
+
+            {% endblock %}
+        
+    
+        </div>
+            <div class="push"></div> 
+        </div>
+        
+
+
+    <div class="footer">
+        <div class="footer-content">
+
+
+            <div class="footer-copyright">
+                <p>webpage built by nash with <a href="http://flask.pocoo.org/">flask</a> on <a href="http://appengine.google.com">app engine</a></p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+
+        
+
+    </body>
+</html>
