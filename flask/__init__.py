@@ -22,6 +22,7 @@ from .helpers import url_for, jsonify, json_available, flash, \
     get_template_attribute, make_response
 from .globals import current_app, g, request, session, _request_ctx_stack
 from .module import Module
+from .blueprints import Blueprint
 from .templating import render_template, render_template_string
 from .session import Session
 

@@ -320,6 +320,16 @@ p {
     list-style-position: inside;
 }
 
+.col2-set .col-2 .blue-box form textarea#content {
+    width: 385px;
+    height: 120px;
+    max-width: 385px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+
 .col2-set .col-2 .blue-box .subtitle-blue {
     font-size: 16px;
     color: #2881ff;
@@ -2361,6 +2371,15 @@ div.overlay-image-action-label
     color: #fff;
     background: #999;
     border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+#submit:hover {
+    color: #fff;
+    background: #fc0;
+    
 }
 
 /* ------------------------------------ */

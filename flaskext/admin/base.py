@@ -2,8 +2,8 @@ from functools import wraps
 from re import sub
 
 from flask import Blueprint, render_template, url_for, abort, g
-from flask.ext.admin import babel
-from flask.ext.admin import helpers as h
+from flaskext.admin import babel
+from flaskext.admin import helpers as h
 
 
 def expose(url='/', methods=('GET',)):

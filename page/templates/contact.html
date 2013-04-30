@@ -23,13 +23,13 @@
             <p>Message:</p>
             <form action="{{ url_for('contact') }}" method="post" id="messageform">
                 {{ form.csrf_token }}
-                {{ form.content(rows=6,cols=72)|safe }}
+                {{ form.content|safe }}
                 <!-- flash submission -->
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         <ul class="error">
                         {% for message in messages %}
-                            <li>{{ message }}</li>
+                            {{ message }}
                         {% endfor %}
                         </ul>
                     {% endif %}
@@ -38,7 +38,7 @@
                 {% if form.content.errors %}
                     <ul class="error">
                     {% for error in form.content.errors %}
-                        <li>{{error}}</li>
+                        {{error}}
                     {% endfor %}
                     </ul>
                 {% endif %}
