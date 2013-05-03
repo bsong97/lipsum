@@ -1,3 +1,6 @@
+# The secret key is to prevent CSRF attack in the Contact Form
+# 
+
 DEBUG=True
 SECRET_KEY='dev_key_h8hfne89vm'
 CSRF_ENABLED=True

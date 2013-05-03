@@ -1,6 +1,6 @@
 from functools import wraps
 from google.appengine.api import users
-from flask import redirect, request
+from flask import redirect, request, abort
 
 def login_required(func):
     """Requires standard login credentials"""

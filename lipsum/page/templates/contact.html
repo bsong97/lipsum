@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% set active_page="contact" %}
+
+{% block title %}Contact Nash{% endblock %}
+
+
+{% block content %}
+
+<div class="col2-set">
+    <div class="col-2">
+        <div class="blue-box">
+            <div class="subtitle-blue"><strong>You can contact me via email:</strong></div>
+            <p>xxx@gmail.com</p></br></br>
+
+            <div class="subtitle-blue"><strong>Or you can call me at this number:</strong></div>
+            <p>+1234 1234</p></br></br>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <div class="blue-box">
+            <div class="subtitle-blue"><strong>Or you can drop me a message here:</strong></div>
+            <p>Message:</p>
+            <form action="{{ url_for('contact') }}" method="post" id="messageform">
+                {{ form.csrf_token }}
+                {{ form.content|safe }}
+                <!-- flash submission -->
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class="error">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                <!-- flash error -->
+                {% if form.content.errors %}
+                    <ul class="error">
+                    {% for error in form.content.errors %}
+                        {{error}}
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                
+                <input type="submit" value="Send Now!" id="submit"/>
+            </form>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}

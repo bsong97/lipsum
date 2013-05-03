@@ -3,8 +3,7 @@ from models import Message
 from decorators import login_required, admin_required
 
 from flask import render_template, flash, url_for, redirect
-from flaskext import wtf
-from flaskext.wtf import validators
+from form import ContactForm
 
 #from google.appengine.api import users
 from google.appengine.ext import db
@@ -12,10 +11,6 @@ from google.appengine.ext import db
 #def message_key(message_name=none):
     #""" Constructs a datastore key for a Messagebook entity with message_name"""
     #return db.Key.from_path('Messagebook', message_name or 'default_messagebook)
-
-class PostForm(wtf.Form):
-    #title = wtf.TextField('Title', validators=[validators.Required()])
-    content = wtf.TextAreaField('Content', validators=[validators.Required()])
     
 
 @app.route('/')
@@ -46,7 +41,7 @@ def projects():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    form = PostForm()
+    form = ContactForm()
     if form.validate_on_submit():
         message = Message(content = form.content.data)
         message.put()
@@ -63,8 +58,8 @@ def page_not_found(e):
 
 
 @app.route('/message')
-@login_required
 @admin_required
+@login_required
 def message():
     """Return the message generated from contact page"""
     messages = db.GqlQuery("SELECT * FROM Message ORDER BY when DESC LIMIT 15")
