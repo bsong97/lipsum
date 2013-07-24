@@ -28,6 +28,10 @@ def about():
 @app.route('/projects')
 def projects():
     return render_template('projects.html')
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
     
     
 #@app.route('/services')

@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% set active_page="" %}
 
+{% block title %}Oops!{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        body {background-color: #FEE5AC;}
+    </style>
+{% endblock %}
+
 {% block content %}
 
     <div class="col-1-gap">

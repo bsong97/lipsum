@@ -70,7 +70,6 @@ h1
 h2
 {
 	font-size: 1.5em;
-	text-transform: uppercase;
 	color: #FC0;	    
 }
 h3
@@ -334,6 +333,14 @@ p {
     font-size: 16px;
     color: #2881ff;
     padding-bottom: 12px;
+}
+
+.col2-set .col-2 .blue-box h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2881ff;
+    padding-bottom: 1px;
+    cursor: pointer;
 }
 
 .col2-set .col-2 .pink-box .subtitle-pink {

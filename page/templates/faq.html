@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% set active_page="faq" %}
+
+{% block title %}Frequently Asked Questions{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="col2-set">
+    <div class="col-2">
+        <div class="blue-box">
+            <h2>Does it really solve all my problems</h2>
+            <div class="answer"><p>Absolutely. It is the most versatile tool ever created in the human history. 
+            It is trained to provide financial management advice, life-saving CPR, and even to take care of household pets.</p></div>
+        </div>
+
+        <div class="blue-box">
+            <h2>Is there nothing that it can do ?</h2>
+            <div class="answer"><p>Why, no there isn’t! It’s even able to fall in love with you and even extends your lifespan by several hundred years. 
+            Now that’s one smart awesome tool!</p></div>
+        </div>
+    </div>
+    
+    <div class="col-2">
+        <div class="blue-box">
+            <h2>Question 3</h2>
+            <div class="answer"><p>Nothing like this.</p></div>
+        </div>
+
+        <div class="blue-box">
+            <h2>Is that all ?</h2>
+            <div class="answer"><p>Yes, that's all</p></div>
+        </div>
+    </div>
+        
+    
+</div>  
+
+<script>
+$(document).ready(function() {
+    $('.answer').hide();
+    $('.blue-box h2').click(function() {
+        $(this).next('.answer').slideToggle("fast");
+        })
+
+}); // end ready
+</script>
+
+{% endblock %}
